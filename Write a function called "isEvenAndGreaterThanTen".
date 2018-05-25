@@ -1,0 +1,12 @@
+function isEvenAndGreaterThanTen(num) {
+  // your code here
+  if(num > 10 && num % 2 === 0){
+    return true;
+  }else{
+    return false;
+  }
+var output = isEvenAndGreaterThanTen(13);
+console.log(output); // --> false
+}
+
+// i think it should say false but it says nothing.
