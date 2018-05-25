@@ -1,0 +1,11 @@
+function convertScoreToGradeWithPlusAndMinus(score)
+  // your code here
+  
+  arr = []
+  for (i = 5;i > 0;i -=2){
+    arr.push(i);
+  }
+  
+  //console.log(arr)
+var output = convertScoreToGradeWithPlusAndMinus(91);
+console.log(output); // --> 'A-'
