@@ -1,0 +1,68 @@
+import turtle
+sazu = turtle.Turtle()
+sazu.speed(13)
+
+#base
+sazu.right(90)
+sazu.fd(540)
+sazu.circle(25,90)
+sazu.fd(305)
+sazu.circle(25,90)
+sazu.fd(540)
+sazu.circle(25,90)
+sazu.fd(305)
+sazu.circle(25,90)
+
+#top
+sazu.fd(40)
+sazu.left(90)
+sazu.penup()
+sazu.fd(5)
+sazu.pendown()
+sazu.fd(345)
+
+#bottom
+sazu.right(90)
+sazu.fd(455)
+sazu.right(90)
+sazu.fd(345)
+sazu.right(90)
+sazu.fd(455)
+
+#top details
+sazu.penup()
+sazu.fd(25)
+sazu.right(90)
+sazu.fd(125)
+sazu.pendown()
+sazu.circle(5)
+sazu.penup()
+sazu.fd(35)
+sazu.pendown()
+sazu.fd(50)
+sazu.circle(5,180)
+sazu.fd(50)
+sazu.circle(5,180)
+
+#home
+sazu.penup()
+sazu.right(180)
+sazu.fd(5)
+sazu.left(90)
+sazu.fd(514)
+sazu.pendown()
+sazu.circle(22)
+
+#foeced to make a forloop so heres a random star
+sazu.penup()
+sazu.fd(-450)
+sazu.left(90)
+sazu.fd(110)
+sazu.pencolor('yellow')
+sazu.width(14)
+sazu.pendown()
+for x in range (5):
+  sazu.forward(50)
+  sazu.right(144)
+
+
