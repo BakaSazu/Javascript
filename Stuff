@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="200" height="200" 
+  style="border:1px solid #000000"></canvas>
+<script>
+var canvas = document.getElementById
+  ("myCanvas")
+var pen = canvas.getContext("2d");
+
+//draw a line
+pen.moveTo(0,0);
+pen.lineTo(200, 200);
+pen.stroke();
+
+//draw a circle
+pen.beginPath();
+pen.arc(100, 100, 50, 0, 2 * Math.PI);
+pen.stroke();
+
+//fill color
+pen.fillStyle="#f4bc42";
+
+//draw text
+pen.font="30px Arial";
+pen.fillText("Sazu", 10, 40);
+
+// draw a gradient
+var grd = pen.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"blue");
+
+//draw rect with gradient
+pen.fillStyle = grd;
+pen.fillRect(0,160,200,40);
+  
+  
+</script>
+</body>
+</html>
