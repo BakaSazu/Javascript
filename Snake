@@ -1,0 +1,113 @@
+window.onload=function(){
+   canvas = document.getElementById("snake");
+   pen = canvas.getContext("2d");
+   //ctx = canvas.getContext("2d");
+   document.addEventListener("keydown",keyPush);
+   // setting the frames per second
+   setInterval(game,1000/15);
+}
+
+//dont use var like normal they are global
+
+// player x and y position
+player_x = 10;
+player_y = 10;
+
+// set grid size to 20x20
+grid_size = 20;
+tile_count = 20;
+
+//player x and y speed
+x_speed = 0;
+y_speed = 0;
+
+// apple x and y position
+apple_x = 15;
+apple_y = 15;
+
+// store the whole snake x and y positions
+trail =[];
+// starting length
+tail = 3;
+
+
+//game logic goes here
+function game(){
+  //update player position each frame
+  player_x+=x_speed;
+  player_y+=y_speed;
+  
+  // detecting  boundries 
+  if(player_x <0) {
+    player_x = tile_count -1;
+  }
+  if(player_x > tile_count -1){
+    player_x = 0;
+  }
+  if(player_y <0) {
+    player_y = tile_count -1;
+  }
+  if(player_y > tile_count -1){
+    player_y = 0;
+  }
+  
+  // create black background
+  pen.fillStyle="black";
+  pen.fillRect(0,0,canvas.width,canvas.height);
+  
+  // draw the apple
+  pen.fillStyle="red";
+  pen.fillRect(apple_x*grid_size,apple_y*grid_size,grid_size,grid_size);
+
+
+
+
+  for(var i=0;i<trail.length;i++) {
+    pen.fillStyle="green";
+    pen.fillRect(trail[i].x*grid_size, trail[i].y*grid_size,grid_size,grid_size);
+    if(trail[i].x==player_x && trail[i].y==player_y){
+      //set snake back to 5 
+      tail = 5;
+    }
+    
+    
+  }
+  // adding player pos and trail
+  trail.push({x:player_x,y:player_y});
+
+  // trims down trail of the snake
+  while(trail.length>tail){
+    trail.shift();
+  }
+  //detecting collision 
+  if(apple_x == player_x && apple_y == player_y){
+    tail++;
+    // moving to random x & y
+    apple_x = Math.floor(Math.random()*tile_count);
+    apple_y = Math.floor(Math.random()*tile_count);
+
+  }
+}
+
+
+function keyPush(evt){
+  switch(evt.keyCode){
+    case 37: // left arrow
+      x_speed = -1;
+      y_speed = 0;
+      break;
+    case 38: // up arrow
+      x_speed = 0;
+      y_speed = -1;
+      break;
+    case 39: // right arrow
+      x_speed = 1;
+      y_speed = 0;
+      break;
+    case 40: // down arrow
+      x_speed = 0;
+      y_speed = 1
+      break;
+    
+  }
+}
